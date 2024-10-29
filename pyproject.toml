@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "carxstream"
+name = "carxstream-car-selling-chatbot"
 version = "0.1.0"
 description = ""
 authors = ["Igorithm <amit1994biswas@gmail.com>"]
@@ -16,7 +16,6 @@ langchain-community = "^0.3.3"
 fuzzywuzzy = "^0.18.0"
 pandas = "^2.2.3"
 langgraph = "^0.2.39"
-
 
 [build-system]
 requires = ["poetry-core"]

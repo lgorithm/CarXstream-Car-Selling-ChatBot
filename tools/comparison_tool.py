@@ -5,7 +5,7 @@ from pydantic import BaseModel, Field
 import re
 
 # CSV file paths
-json_path = "C:/Users/user/Desktop/Assessment/CarXstream/IndianCarMasterDataOutput.json"  
+json_path = "D:/AI_Projects/CarXstream-Car-Selling-ChatBot/IndianCarMasterDataOutput.json"  
 master = pd.read_json(json_path)
 
 # Parse & Convert the price input to a numeric format

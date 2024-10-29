@@ -5,7 +5,7 @@ from pydantic import BaseModel, Field
 import re
 
 # CSV file paths
-csv_path = "C:/Users/user/Desktop/Assessment/CarXstream/Hyderabad_scraped_car_data.csv"  
+csv_path = "D:/AI_Projects/CarXstream-Car-Selling-ChatBot/Hyderabad_scraped_car_data.csv"  
 sells = pd.read_csv(csv_path)
 
 # Parse & Convert the price input to a numeric format
