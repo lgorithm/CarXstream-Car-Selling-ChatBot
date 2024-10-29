@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "carxstream"
+version = "0.1.0"
+description = ""
+authors = ["Igorithm <amit1994biswas@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+streamlit = "^1.39.0"
+langchain = "^0.3.4"
+python-dotenv = "^1.0.1"
+langchain-openai = "^0.2.3"
+streamlit-chat = "^0.1.1"
+langchain-community = "^0.3.3"
+fuzzywuzzy = "^0.18.0"
+pandas = "^2.2.3"
+langgraph = "^0.2.39"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

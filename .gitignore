@@ -1,0 +1,6 @@
+.venv
+.ipynb_checkpoints
+.env
+poetry.lock
+test.py
+car_details.csv
