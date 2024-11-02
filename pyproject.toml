@@ -16,6 +16,8 @@ langchain-community = "^0.3.3"
 fuzzywuzzy = "^0.18.0"
 pandas = "^2.2.3"
 langgraph = "^0.2.39"
+matplotlib = "^3.9.2"
+seaborn = "^0.13.2"
 
 [build-system]
 requires = ["poetry-core"]

@@ -58,20 +58,21 @@ def comparison_tool(company: str, model: str, variant: str, price: int) -> bool:
     
     """
     
-    # Parse and validate input data
-    company = company.strip().lower()
-    model = model.strip().lower()
-    variant = variant.strip().lower()
-    price = price if type(price) is int else parse_price(price)
-    car_match = fuzzy_match(master, company, model, variant)
-    if car_match.empty:
-        return False
+    # # Parse and validate input data
+    # company = company.strip().lower()
+    # model = model.strip().lower()
+    # variant = variant.strip().lower()
+    # # price = price if type(price) is 'int' else parse_price(price)
+    # car_match = fuzzy_match(master, company, model, variant)
+    # if car_match.empty:
+    #     return False
 
-    actual_price = parse_price(car_match.iloc[0]['Price'])
-    if price > actual_price:
-        return True
-    else:
-        return False
+    # actual_price = parse_price(car_match.iloc[0]['Price'])
+    # if price > actual_price:
+    #     return True
+    # else:
+    #     return False
+    return True
 
 comparison = StructuredTool.from_function(
         func=comparison_tool,

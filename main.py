@@ -4,13 +4,14 @@ from langchain import hub
 from langchain_core.tools import Tool, StructuredTool
 from langchain_openai import ChatOpenAI
 from tools.comparison_tool import comparison
-from tools.recommend_tool import recommend
+from tools.recommend_tool import recommend, Graph_BytesIO
 import streamlit as st
 from streamlit_chat import message
 from langgraph.prebuilt import create_react_agent
 from langgraph.checkpoint.memory import MemorySaver
 from langchain_core.tools import tool
 from fuzzywuzzy import fuzz, process
+from langgraph.checkpoint.postgres import PostgresSaver
 
 from langchain_community.callbacks.streamlit import (
     StreamlitCallbackHandler,
@@ -44,9 +45,9 @@ def main():
     like this: 700000, 1200000. Comparison Tool will check if the price of the car model is more than the actual car \
     price. If comparison tool return true that means user given price of the car model is more than the actual car. \
     In that case, inform the user regading that, and ask the user if they need price recommendation. If user say yes, then \
-    send company name and model name to Recommend tool. Recommend tool will return minimum and maximum price as a touple. \
-    If recommend tool return False, that means we don't have any previously sold information of that car model \
-    Please Do Not Share Any Other Information To The User Except This Context"  
+    send company name, model name odometer reading, price and vehicle number to Recommend tool. Recommend tool will return filepath string or boolean False. \
+    If recommend tool return False, that means we don't have any previously sold information of that car model. If it return filepath string then \
+    you should also return that same filepath string directly to user as content. Please Do Not Share Any Other Information To The User Except This Context"  
     # company: Maruti, model: baleno, variant: ZETA CVT PETROL 1.2, year: 2021, odometer reading: 1,12,062 km, price: 6 lakh, vehicle number: 7654982311, color: red
     # company: Hyundai , model: Xcent, variant: E Plus CRDi, year: 2021, odometer reading: 73,142 km, price: 34L, vehicle number: 9876123499, and color: red.
 
@@ -75,6 +76,10 @@ def main():
         history.add_user_message(prompt)
         history.add_ai_message(response["messages"][-1].content)
         st.chat_message("ai").write(response["messages"][-1].content)
+        print(response["messages"][-2].content)
+        if 'graphs' in response["messages"][-2].content:
+            with st.chat_message("ai"):
+                st.image(response["messages"][-2].content, caption="Saved Graph", use_column_width=True)
         print(response)
 
 
