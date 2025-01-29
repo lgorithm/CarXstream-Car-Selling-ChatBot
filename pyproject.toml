@@ -1,24 +1,25 @@
-[tool.poetry]
-name = "carxstream-car-selling-chatbot"
+[project]
+name = "ai-agent-handler-sell"
 version = "0.1.0"
 description = ""
-authors = ["Igorithm <amit1994biswas@gmail.com>"]
+authors = [
+    {name = "Igorithm",email = "amit.biswas@carxstream.in"}
+]
 readme = "README.md"
+requires-python = ">=3.12,<4.0"
+dependencies = [
+    "langchain (>=0.3.15,<0.4.0)",
+    "streamlit (>=1.41.1,<2.0.0)",
+    "python-dotenv (>=1.0.1,<2.0.0)",
+    "langchain-openai (>=0.3.2,<0.4.0)",
+    "streamlit-chat (>=0.1.1,<0.2.0)",
+    "langchain-community (>=0.3.15,<0.4.0)",
+    "langgraph (>=0.2.67,<0.3.0)",
+    "ipython (>=8.31.0,<9.0.0)",
+    "pydantic (>=2.10.6,<3.0.0)",
+]
 
-[tool.poetry.dependencies]
-python = "^3.11"
-streamlit = "^1.39.0"
-langchain = "^0.3.4"
-python-dotenv = "^1.0.1"
-langchain-openai = "^0.2.3"
-streamlit-chat = "^0.1.1"
-langchain-community = "^0.3.3"
-fuzzywuzzy = "^0.18.0"
-pandas = "^2.2.3"
-langgraph = "^0.2.39"
-matplotlib = "^3.9.2"
-seaborn = "^0.13.2"
 
 [build-system]
-requires = ["poetry-core"]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
