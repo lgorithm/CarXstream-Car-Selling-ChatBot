@@ -4,7 +4,7 @@
 
 This project is an AI-powered car selling agent that interacts with a **SQL database** to provide information about used cars. Users can ask queries like:
 
-> *"How many Ford cars are available that are red in color?"*
+> *"How many Honda cars are available?"*
 
 The agent processes user queries using **LangChain**, **OpenAI GPT models**, and **LangGraph**, making it capable of dynamically fetching and processing database records.
 
@@ -13,17 +13,21 @@ The agent processes user queries using **LangChain**, **OpenAI GPT models**, and
 ## 🛠️ Technologies Used
 
 - **LangChain** (LLM integration & tool handling)
-- **LangGraph** (Agent workflow management)
+- **Streamlit** (For UI)
 - **OpenAI GPT-4o Mini** (AI-powered query resolution)
 - **SQLite** (Database management)
 - **SQLAlchemy** (Database connectivity & ORM)
 - **Python** (Core development)
+- **Poetry** (Package Management)
 
 ---
 
 ## 📂 Project Structure
 
 ```
+├── Agents/
+│   ├── buy.py  # React Agent from LangChain
+│
 ├── DB/
 │   ├── car_data.db  # SQLite Database storing used car details
 │
@@ -33,8 +37,9 @@ The agent processes user queries using **LangChain**, **OpenAI GPT models**, and
 ├── tools/
 │   ├── sql_database.py  # SQL database integration & toolkit setup
 │
-├── buy.py  # AI Agent implementation using LangGraph
-├── sql_database.py  # SQL toolkit and database connectivity setup
+├── user.py  # UI for interacting to the Agent
+├── admin.py  # UI for showing available car list
+├── app.py  # starting point of Streamlit App 
 ├── .env  # API keys and environment variables
 ```
 
@@ -57,14 +62,14 @@ The agent processes user queries using **LangChain**, **OpenAI GPT models**, and
 ### 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/car-selling-agent.git
+git clone https://github.com/lgorithm/Car-Selling-Agent.git
 cd car-selling-agent
 ```
 
 ### 2️⃣ Install Dependencies
 
 ```bash
-pip install -r requirements.txt
+poetry install
 ```
 
 ### 3️⃣ Set Up Environment Variables
@@ -78,7 +83,7 @@ OPENAI_API_KEY=your_api_key_here
 ### 4️⃣ Run the Agent
 
 ```bash
-python buy.py
+poetry run streamlit run app.py
 ```
 
 ---
@@ -87,14 +92,6 @@ python buy.py
 
 - "How many Honda cars are available?"
 - "Show me all diesel cars under ₹5 lakhs."
-- "List all available SUVs with less than 50,000 km driven."
-
 ---
 
-## 📧 Contact & Contribution
-
-Feel free to contribute to the project! If you have any suggestions or issues, reach out via **GitHub Issues**.
-
-📩 **Email**: [your.email@example.com](mailto\:your.email@example.com)\
-📝 **GitHub**: [yourusername](https://github.com/yourusername)
 
